@@ -1,0 +1,48 @@
+body {
+    background: #F1F1F1;
+}
+
+.row {
+    background:#ffffff;
+}
+
+.navbar {
+   border-radius: 0;
+}
+
+.post-info {
+    border: 1px solid #DDD;
+    border-radius: 0;
+    padding-bottom: 5px;
+    padding-left: 50px;
+    padding-top: 15px;
+}
+
+.post-heading > a {
+    color: black;
+}
+
+.pager li > a {
+    color: black;
+    border-radius: 0;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: black;
+}
+
+.navbar-default .navbar-text {
+    color: black;
+}
+
+.navbar-default .navbar-text > a{
+    color: black;
+    font-size: 20px;
+}
+
+.divider-vertical {
+    height: 10px;
+    margin: 0 1px;
+    border-right: 1px solid #ffffff;
+    border-left: 1px solid black;
+}

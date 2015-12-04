@@ -1,0 +1,31 @@
+<div class="col-sm-12">
+    <div ng-repeat="post in posts" class="row">
+        <h1 class="post-heading">
+            <a href="/p/{{ post.id }}"> {{ post.subject }} </a>
+        </h1>
+        <div ng-bind-html="post.body | trustAsHtml"></div>
+        <div class="col-sm-5 post-info">
+            <ul class="list-inline">
+                <li>
+                  <div class="fa fa-calendar"> {{ post.datetime | date:'medium' }} </div>
+                </li>
+                <li role="separator" class="divider-vertical"></li>
+                <li>
+                  <div class="fa fa-user"> {{ post.author }} </div>
+                </li>
+                <li role="separator" class="divider-vertical"></li>
+                <li>
+                  <div class="fa fa-comments-o"> {{ post.comments_count }} </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <nav>
+          <ul class="pager">
+            <li id="pager_older" class="previous" ng-class="{disabled: !isOlderPosts}"><a href="#" ng-click="nextPage()"><span aria-hidden="true">&larr;</span> Older</a></li>
+            <li id="pager_newer" ng-show="pageNum != 0" class="next"><a href="#" ng-click="prevPage()">Newer <span aria-hidden="true">&rarr;</span></a></li>
+          </ul>
+        </nav>
+    </div>
+</div>

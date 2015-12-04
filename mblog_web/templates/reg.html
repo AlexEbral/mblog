@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block meta %}{% endblock %}
+    <link rel="stylesheet" href="{{url_for('static', filename='lib/bootstrap-3.3.6-dist/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='lib/bootstrap-3.3.6-dist/css/bootstrap-theme.min.css')}}">
+    {% block css %}{% endblock %}
+    <title>Mblog - Sign up</title>
+</head>
+<body>
+<div class="container">
+    <form method="post" class="col-sm-offset-3 col-sm-6">
+        <h3 class="text-center">Sign up</h3>
+        <fieldset class="form-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" class="form-control" placeholder="username" required/>
+        </fieldset>
+        <fieldset class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" class="form-control" placeholder="password" required/>
+        </fieldset>
+        {% if error is defined %}
+            <p class="text-danger"> {{error}} </p>
+        {% endif %}
+        <button type="submit" class="btn btn-lg">Sign up</button>
+        <a class="col-sm-offset-8" href="/login">or login</a>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<div class="col-sm-12">
+    <div class="row">
+        <h1>
+            {{ post.subject }}
+        </h1>
+        <div ng-bind-html="post.body | trustAsHtml"></div>
+        <div class="col-sm-5 post-info">
+            <ul class="list-inline">
+                <li>
+                  <div class="fa fa-calendar"> {{ post.datetime | date:'medium' }} </div>
+                </li>
+                <li role="separator" class="divider-vertical"></li>
+                <li>
+                  <div class="fa fa-user"> {{ post.author }} </div>
+                </li>
+                <li role="separator" class="divider-vertical"></li>
+                <li>
+                  <div class="fa fa-comments-o"> {{ post.comments.length }} </div>
+                </li>
+                <li ng-show="isAuthor">
+                   <button class="btn btn-sm"  ng-click="editPost()">edit</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <h2>Comments:</h2>
+        <div ng-repeat="comment in post.comments">
+            <ul class="list-inline">
+                <li ng-show="comment.author == currentUser && !comment.isEdit">
+                    <button class="btn btn-sm" ng-click="editComment(comment)">edit</button>
+                </li>
+                <li>
+                  <div class="fa fa-calendar"> {{ comment.datetime | date:'medium' }} </div>
+                </li>
+                <li role="separator" class="divider-vertical"></li>
+                <li>
+                  <div class="fa fa-user"> {{ comment.author }}:</div>
+                </li>
+            </ul>
+            <div ng-if="!comment.isEdit" ng-bind-html="comment.body | trustAsHtml"></div>
+            <form ng-if="comment.isEdit">
+                <fieldset class="form-group">
+                    <summernote ng-model="comment.body" height="200" focus></summernote>
+                </fieldset>
+            <button type="submit" class="btn btn-sm" ng-if="!isNewPost" ng-click="updateComment(comment)">Update</button>
+            <button type="submit" class="btn btn-sm col-sm-offset-10" ng-click="deleteComment(comment)">Delete</button>
+            </form>
+            <hr/>
+        </div>
+    </div>
+    <div class="row">
+        <form>
+            <fieldset class="form-group">
+                <label>Comment</label>
+                <summernote ng-model="newComment.body" height="300" focus></summernote>
+            </fieldset>
+            <button type="submit" class="btn btn-lg" ng-click="sendComment()">Send</button>
+        </form>
+    </div>
+</div>
