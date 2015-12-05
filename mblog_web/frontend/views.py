@@ -9,6 +9,7 @@ mod = Blueprint('main', __name__)
 
 @mod.route('/login', methods=['GET', 'POST'])
 def login():
+    #login method
     logger = current_app.logger
     if request.method == 'POST':
         username = request.form['username']
