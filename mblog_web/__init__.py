@@ -1,6 +1,8 @@
-from flask import Flask
 import logging
-from mblog_web.frontend.views import mod as main_views
+
+from flask import Flask
+
+from mblog_web.views import mod as main_views
 from mblog_web import db_utils
 from mblog_web import json_utils
 
