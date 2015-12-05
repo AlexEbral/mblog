@@ -1,6 +1,6 @@
 from flask import render_template, Blueprint, redirect, request, current_app, session, url_for, jsonify
-from mblog_web.frontend import decorators
-from mblog_web import db_utils
+
+from mblog_web import db_utils, decorators
 from mblog_web import json_utils
 from mblog_web import models
 
