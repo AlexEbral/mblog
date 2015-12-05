@@ -2,6 +2,8 @@ from flask_pymongo import PyMongo
 from bson.json_util import dumps
 from bson.objectid import ObjectId
 from flask import current_app
+from werkzeug.security import generate_password_hash, \
+     check_password_hash
 
 mongo = None
 app = None
@@ -84,14 +86,17 @@ def add_user(user):
     with app.app_context():
         mongo.db.users.insert_one(user.__dict__)
 
-
 def user_exists(username):
     with app.app_context():
         user = mongo.db.users.find_one({'name': username})
         return user is not None
 
 
-def check_user_credentials(username, pwd):
+def check_user_hash(username, password):
+    pw_hash = mongo.db.users.find_one({'name': username})
+    pw_hash = pw_hash['pwd']
     with app.app_context():
-        user = mongo.db.users.find_one({'name': username, 'pwd': pwd})
-        return user is not None
+        hash = check_password_hash(pw_hash, password)
+        return hash
+
+

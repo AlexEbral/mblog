@@ -19,7 +19,7 @@ def login():
             logger.debug('Wrong username\password {0}'.format(username))
             return render_template('login.html', error='Enter username')
 
-        if not db_utils.check_user_credentials(username, password):
+        if not db_utils.check_user_hash(username, password):
             return render_template('login.html', error='Wrong username or password')
 
         session['username'] = username
