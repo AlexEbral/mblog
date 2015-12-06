@@ -42,7 +42,7 @@ def registration():
             logger.debug('Wrong username {0}'.format(username))
             return render_template('reg.html', error='Enter your username')
 
-        if password is None or len(password.strip()) < 5:
+        if password is None or len(password.strip()) < 1:
             logger.debug('Wrong password {0}'.format(password))
             return render_template('reg.html', error='Password length must be greater than 5 symbols')
 

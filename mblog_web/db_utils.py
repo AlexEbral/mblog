@@ -93,10 +93,11 @@ def user_exists(username):
 
 
 def check_user_hash(username, password):
-    pw_hash = mongo.db.users.find_one({'name': username})
-    pw_hash = pw_hash['pwd']
     with app.app_context():
-        hash = check_password_hash(pw_hash, password)
-        return hash
+        pw_hash = mongo.db.users.find_one({'name': username})
+        if pw_hash is not None:
+            pw_hash = pw_hash['pwd']
+            hash = check_password_hash(pw_hash, password)
+            return hash
 
 
