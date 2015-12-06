@@ -1,0 +1,15 @@
+{
+  "name": "mblog",
+  "version": "0.0.1",
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "angular": "~1.4.8",
+    "angular-route": "~1.4.8",
+    "angular-resource":"~1.4.8",
+    "angular-sanitize":"~1.4.8",
+    "angular-summernote": "~0.5.2",
+    "underscore":"~1.8.3",
+    "restangular":"~1.5.1",
+    "bootstrap-notify":"~0.2.0"
+  }
+}
