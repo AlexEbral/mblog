@@ -75,6 +75,16 @@ angular.module('mblog.controllers', ['restangular'])
             $scope.new_post = null;
             $scope.isNewPost = $routeParams.post_id == undefined;
 
+            $scope.options = {
+                height: 300,
+                toolbar: [
+                    ['style', ['bold', 'italic', 'underline', 'clear']],
+                    ['group', ['codeHighlight']]
+                ]
+            };
+
+            $scope.items = hljs.listLanguages();
+
             if(!$scope.isNewPost){
                 Restangular.one('post', $routeParams.post_id).get().then(function(resp){
                     $scope.new_post = resp;

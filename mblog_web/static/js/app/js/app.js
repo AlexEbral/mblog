@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('mblog', ['ngRoute', 'mblog.controllers', 'mblog.filters', 'summernote', 'ngSanitize'])
+angular.module('mblog', ['ngRoute', 'mblog.controllers', 'mblog.filters','mblog.directives', 'summernote', 'ngSanitize'])
     .config(['$routeProvider', '$locationProvider','$httpProvider', function($routeProvider, $locationProvider, $httpProvider) {
         $httpProvider.defaults.cache = false;
         if (!$httpProvider.defaults.headers.get) {

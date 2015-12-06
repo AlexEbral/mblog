@@ -8,11 +8,11 @@
         </fieldset>
         <fieldset class="form-group">
             <label>Body</label>
-            <summernote ng-model="new_post.body" height="300" focus></summernote>
+            <summernote ng-model="new_post.body" config="options"></summernote>
         </fieldset>
         <button type="submit" class="btn btn-lg" ng-if="isNewPost" ng-click="createPost()">Create</button>
         <button type="submit" class="btn btn-lg" ng-if="!isNewPost" ng-click="updatePost()">Update</button>
         <button type="submit" class="btn btn-lg col-sm-offset-10" ng-if="!isNewPost" ng-click="deletePost()">Delete</button>
+        <!--<dropdown-list></dropdown-list>-->
     </form>
-
 </div>
