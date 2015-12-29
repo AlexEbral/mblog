@@ -1,0 +1,24 @@
+mongodb:
+  image: mongo
+  restart: always
+
+mblog_web:
+  build: .
+  dockerfile: Dockerfile.Mblog
+  working_dir: /project_src/
+  links: 
+        - mongodb
+  volumes:
+        - .:/project_src/
+  ports:
+        - "80:5000"
+  environment:
+        - MONGODB_HOST=mongodb
+
+nodejs:
+  build: .
+  dockerfile: Dockerfile.Nodejs
+  command: bash -c 'bower install'
+  working_dir: /project_src/mblog_web/static/
+  volumes:
+        - .:/project_src/

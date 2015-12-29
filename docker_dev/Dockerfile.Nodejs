@@ -1,0 +1,9 @@
+FROM library/node
+MAINTAINER Digitally Seamless <docker@digitallyseamless.com>
+
+RUN npm install -g bower grunt-cli gulp && \
+    echo '{ "allow_root": true }' > /root/.bowerrc
+
+WORKDIR /data
+
+CMD ["bash"]
